@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<head>
+<style>
+* {margin:0; padding: 0; box-sizing: border-box;}
+ul,ol,li {list-style: none; margin: 0; padding: 0;}
+
+#warp {width: 100%; margin: 0 auto;}
+#headerwrap {width: 100%; height: 80px; top:0; left:0; background-color: #000;}
+header {width:80%; height: 80px; margin: 0 auto; display: flex; justify-content: space-around; align-items: center; position: relative; background-color: skyblue;}
+.logo {width: 130px; height:30px; background-color:#333; line-height: 1px; display: block;}
+nav {background-color: pink; display: block;}
+nav a:hover {color:#ec167f;}
+nav ul {display:flex; }
+nav ul li a {padding:15px; text-decoration:none; color:#eee; position: relative;}
+.a { background-color: aliceblue; width: 25px; height: 25px; display:block; float: right; }
+
+#slider {width: 100%; height: 700px; background-image: url("https://giseok-hong.github.io/Portfolio/web_pages/exhibiz/html/img/slider-img-2.jpg"); background-size: cover; display: flex; justify-content: center; align-items: center;  background-color: bisque; }
+#slider > .container {width: 1200px; margin: 0 auto; text-align: center; background-color: aquamarine;}
+#slider > .container > span { font-size: 19px; line-height: 60px; font-weight: bold; color: #883ff9;}
+#slider > .container > h1 { font-size: 56px; line-height: 60px; color: #eee; margin: 0;  opacity: 1px;}
+#slider > .container > .smalltext {margin: 40px 0; color: #ec167f; display: flex; justify-content: center; align-items: center; background-color: plum;}
+#slider > .container > .smalltext > img {background-color: aliceblue; width: 20px; height: 20px; display:block; float: left;}
+#slider > .container > .smalltext >span {font-size: 18px; color: #fff; margin:0 20px 0 5px; }
+button {font-size: 15px; color: #fff; background-color: #ec167f; padding: 10px 20px; border:none; cursor: pointer; letter-spacing: 3px; transition: 0.3s; opacity:1;}
+button:hover {opacity: 0.9;}
+
+main {width: 100%; height: 2000px; background-color: #000;}
+main > #content-countdown {width: 100%; height: 190px; background-color: floralwhite; }
+main > #content-countdown > .container {width: 1200px; height: 190px; margin: 0 auto; display: flex; justify-content: center; align-items: center; background-image: linear-gradient(120deg,#ec167f 0%,#883ff9 100% );}
+.itembox {width: 25%; text-align: center; display: flex; flex-direction: column; }
+.countdown > span {font-size: 50px; color:#fff;}
+span {font-size: 20px; color: #eee; text-align: center;}
+
+#section-about {width: 100%; background-color: skyblue; background-image: url("https://giseok-hong.github.io/Portfolio/web_pages/exhibiz/html/img/box2-back-1.png");}
+#section-about > .container {width: 1200px; height: 600px; margin: 0 auto; display: flex;
+align-items: center; background-color: sandybrown;}
+#section-about > .container > .left-box {width: 50%; background-color: silver;}
+#section-about > .container > .left-box > h2 {font-size: 32px; color:#fff}
+#section-about > .container > .left-box > p {font-size: 15px; color:#666; margin:30px 0 20px;}
+#section-about > .container > .left-box > button {font-size: 12px; color: #fff;  background-color: #ec167f; padding: 10px 20px; cursor: pointer; letter-spacing: 3px; transition: 0.3s; opacity:1;}
+#section-about > .container > .left-box > button:hover {opacity: 0.9;}
+
+.right-box > img:hover {transform: scale(1.2);}
+.right-box {width: 50%; position: relative;}
+.right-box > img:nth-of-type(1) {position: absolute; width: 50%; height: 50%;top: 75%; left: -35%; z-index: 1; border-radius: 5px;}
+.right-box > img:nth-of-type(2) {position: absolute; width: 40%; height: 40%; right: -10%; bottom: -10%; z-index: 3; border-radius: 5px; }
+.right-box > img:nth-of-type(3) {width: 100%; position: relative; z-index: 2;  transform:scale(1);  transition: 0.3s ; border-radius: 5px;}
+
+#section-features {width: 100%;  background-color: gold;}
+#section-features > .container {width: 1200px; height: 600px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center; line-height: 5px; background-color: silver;}
+#section-features > .container > h2 {color: #fff; font-size: 32px; margin: 130px 0 30px;}
+#section-features > .container > .itembox {width: 100%; height: 600px; display: flex; flex-flow: row wrap; justify-content: space-between; align-items: center; background-color: antiquewhite;}
+#section-features > .container > .itembox > .item {width: 32%; height: 200px; margin: 2% 0; position: relative; background-color: cornflowerblue;}
+#section-features > .container > .itembox > .item > .iconbox {width: 80px; height: 80px;}
+#section-features > .container > .itembox > .item > .textbox {margin-left: 100px; text-align: left;}
+#section-features > .container > .itembox > .item > .textbox > h4 {color: #fff; font-size: 18px; margin-bottom: 10px;}
+#section-features > .container > .itembox > .item > .textbox > p {color: #aaa; font-size: 12px; padding: 10px; line-height: 20px;}
+
+#section-speakers {width: 100%; height: 700px; background-color: salmon; background-image: url("https://giseok-hong.github.io/Portfolio/web_pages/exhibiz/html/img/box4-back-1.jpg");}
+
+#section-schedule {width: 100%; height: 850px; background-color: salmon; background-image: url("https://giseok-hong.github.io/Portfolio/web_pages/exhibiz/html/img/box5-back-1.png");}
+#section-schedule > .container {width: 1200px; height: 850px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center; background-color: skyblue;}
+#section-schedule > .container > h2 {color: #fff; font-size: 32px; margin: 60px 0 30px;}
+#section-schedule > .container > .itembox {width: 100%; height: 700px; background-color: sandybrown;}
+
+#section-ticket {width: 100%; height: 900px; background-color: gray; background-image: url("https://giseok-hong.github.io/Portfolio/web_pages/exhibiz/html/img/box6-back-1.jpg");}
+#section-ticket > .container {width: 1200px; height: 900px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center; background-color: violet;}
+#section-ticket > .container > h2 {color: #fff; font-size: 32px; margin: 60px 0 30px;}
+#section-ticket > .container > .itembox {width: 100%; height: 700px; display: flex; flex-flow: row wrap; justify-content: center; background-color:seagreen;}
+#section-ticket > .container > .itembox > .item {width: 350px; height: 650px; background-color: #000; margin:25px ;}
+
+#section-sponsors {width: 100%; height: 900px; background-color: slateblue; background-image: url("https://giseok-hong.github.io/Portfolio/web_pages/exhibiz/html/img/box7-back-1.png");}
+#section-sponsors > .container {width: 1200px; height: 600px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center; background-color:royalblue;}
+#section-sponsors > .container > h2 {color: #fff; font-size: 32px; margin: 60px 0 30px;}
+#section-sponsors > .container > .itembox {width: 100%; height: 700px; display: flex; flex-flow: row wrap; justify-content: center; background-color:pink;}
+#section-sponsors > .container > .itembox > h3 {width: 100%; font-size: 18px; color: #fff; margin-bottom: 30px; background-color: aqua;}
+#section-sponsors > .container > .itembox > .logobox {width: 100%; display: flex; justify-content: space-evenly; margin-bottom: 70px; background-color: sandybrown;}
+
+#section-testimonials {width: 100%;  background-color: sienna;}
+#section-testimonials > .container {width: 1200px; height: 550px; margin: 0 auto; text-align: center; display: flex; flex-flow: row wrap; align-items: center; background-color:royalblue;}
+#section-testimonials > .container > .itembox {width: 100%; height: 400px; display: flex; justify-content: center; align-items: center; background-color:gray;}
+#section-testimonials > .container > .itembox > h4 {color: #fff; font-size: 22px; margin-bottom: 30px;}
+#section-testimonials > .container > .itembox > p {color: #666; font-size: 18px; padding: 0 250px 30px;}
+#section-testimonials > .container > .itembox > span {color: #fff; font-size: 14px; padding-bottom: 30px;}
+
+#section-portfolio {width: 100%;  background-color: sandybrown;}
+#section-portfolio > .container {width: 100%; margin: 0 auto; display: flex; background-color: gold;}
+#section-portfolio > .container > .imgbox {width: 25%; position: relative; z-index: 1;  cursor: pointer; overflow: hidden;}
+#section-portfolio > .container > .imgbox > img {opacity: 0.4;}
+#section-portfolio > .container > .imgbox > .textbox {opacity: 1;}
+#section-portfolio > .container > .imgbox > img:hover {opacity: 0.3; transform: scale(1.1); transition: 1s;}
+#section-portfolio > .container > .imgbox > .textbox {width: 100%; color: #ec167f; position: absolute; top: 50%; text-align: center; font-size: 15px; font-weight: bold;}
+
+
+#section-register {width: 100%;  background-color: aqua;}
+#section-register > .container {width: 1200px; height: 550px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center;}
+#section-register > .container > h2 {color: #fff; font-size: 32px; margin: 60px 0 30px;}
+
+form {width: 100%; margin: 0 auto; background-color: slateblue;} 
+form > button {background-color:#ec167f; border: none;color: white; padding: 16px 32px; text-align: center; font-size: 5px; margin: 4px 2px; opacity: 0.6; transition: 0.6s;}
+form > button:hover {opacity: 1;}
+fieldset {width: 100%;  margin: 0 auto; display: flex; justify-content: center;  }
+fieldset > .form-left {width: 30%; margin: 1px; display: flex; flex-direction: column; justify-content: space-between; }
+fieldset > .form-left > input {height: 45px; border: 1px solid  rgba(0,0,0,0.3); padding: 10px; color: #eee; background-color: rgba(0,0,0,0.3);}
+fieldset > .form-left > input:hover {border: 1px solid  #ec167f;}
+fieldset > .form-right {width: 30%; margin: 1px; background-color: cornflowerblue;}
+fieldset > .form-right > textarea {width: 100%; height: 180px;  border: 1px solid  rgba(0,0,0,0.3); padding: 10px; color: #eee; background-color: rgba(0,0,0,0.3);}
+fieldset > .form-right > input:hover {border: 1px solid  #ec167f;}
+
+#banner {width: 100%; height: 160px; background-image: linear-gradient(120deg,#ec167f 0%,#883ff9 100% );}
+#banner > .container {width: 1200px; height: 160px; margin:0 auto; display: flex; flex-flow: row wrap; justify-content: space-between; align-items: center; background-color: skyblue;}
+#banner > .container > .left-box > h3 {color: #fff; font-size: 20px; background-color: seagreen; margin: 0 0 0 50px;}
+#banner > .container > .right-box > button {background-color: #ec167f; font-size: 10px; color: #fff; border: none; cursor: pointer; padding: 10px 20px; margin: 0 0 0 400px;}
+
+#section-facts {width: 100%; background-image: url("https://www.madebydesignesia.com/themes/exhibiz/images/bg/3.jpg");}
+#section-facts > .container {width: 1200px; height: 700px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;}
+#section-facts > .container > .itembox {width: 25%; text-align: center;}
+#section-facts > .container > .itembox > h3 {color: #fff; font-size: 50px; margin: 15px;}
+#section-facts > .container > .itembox > p {color: #fff; font-size: 20px;}
+
+#footerwrap {width: 100%; height: 200px; background-color: #000;}
+footer {width: 1200px; height: 200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; background-color: #666; }
+.copyright {color: #ccc;}
+.copyright > span {color: #ec167f;}
+
+.sns > ul {display: flex;}
+.sns > ul > li {list-style: none;}
+.sns > ul > li > a > img{color: #ccc; padding: 5px 9px;} 
+</style>
+</head>
+</head>
+<body>
+
+<div id="wrap">
+
+<!--header begin-->
+<div id="headerwrap">
+<header>
+<div class="logo">
+<a href="#"><img src="https://www.madebydesignesia.com/themes/exhibiz/images/logo.png" alt="logo"></a>
+</div>
+
+
+<nav clas="b">
+<ul>
+<li><a href="#">HOME</a></li>
+<li><a href="#">ABOUT</a></li>
+<li><a href="#">SPEAKERS</a></li>
+<li><a href="#">SCHEDULE</a></li>
+<li><a href="#">TICKET</a></li>
+<li><a href="#">SPONSORS</a></li>
+<li><a href="#">REGISTER</a></li>
+<li><a href="#"> <img src="https://cdn3.iconfinder.com/data/icons/feather-5/24/align-justify-64.png" alt="logobar" class="a"></a></li>
+
+</ul>
+</nav>
+
+</header>
+</div>
+</div>
+<!--section begin-->
+<div id="slider">
+<div class="container">
+<span>June 20, 2023</span>
+<h1>Creative Design</h1>
+<br>
+<h1>Expo 2023</h1>
+
+<div class="smalltext">
+<img src="https://cdn3.iconfinder.com/data/icons/feather-5/24/calendar-64.png" alt="icon1">
+<span>June20th to 25th</span>
+
+<img src="https://cdn3.iconfinder.com/data/icons/feather-5/24/user-64.png" alt="icon1">
+<span>12Speakers </span>
+
+<img src="https://cdn3.iconfinder.com/data/icons/feather-5/24/map-pin-64.png" alt="icon1">
+<span>Palo Alto, California</span>
+</div>
+
+<button> GET TICKET</button>
+</div>
+</div>
+
+<!--content begin-->
+<main>
+<div id="content-countdown">
+<div class="container">
+<div class="itembox">
+<span class="countdown">
+<span>0</span>
+<span>0</span>
+<span>-</span>
+</span>
+<span>DAYS</span>
+</div>
+
+<div class="itembox">
+<span class="countdown">
+<span>0</span>
+<span>-</span>
+</span>
+<span>HOURSS</span>
+</div>
+
+<div class="itembox">
+<span class="countdown">
+<span>0</span>
+<span>-</span>
+</span>
+<span>MINUTES</span>
+</div>
+
+<div class="itembox">
+<span class="countdown">
+<span>0</span>
+<span>-</span>
+</span>
+<span>SECONDS</span>
+</div>
+</div>
+</div>
+
+<div id="section-about">
+<div class="container">
+<div class="left-box">
+<h2>Welcome to the Biggest
+<br>
+Creative Design Conference
+</h2>  
+<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.
+</p> 
+<button>ABOUT AS</button> 
+</div>
+<div class="right-box">
+<img src="https://www.madebydesignesia.com/themes/exhibiz/images/misc/2.jpg" alt="image2">
+<img src="https://www.madebydesignesia.com/themes/exhibiz/images/misc/3.jpg" alt="image3">
+<img src="https://www.madebydesignesia.com/themes/exhibiz/images/misc/1.jpg" alt="image1">
+</div>
+</div>
+<div id="section-features">
+<div class="container">
+<h2>Why you should Join Event</h2>
+<img src="img/11.jpg" alt="dot">
+<div class="itembox">
+<div class="item">
+    <div class="iconbox">
+        <img src="img/14.jpg" alt="iconbox1">
+    </div>
+    <div class="textbox">
+        <h4>World Class Speakers</h4>
+        <p> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.</p>
+    </div>
+</div>
+<div class="item"></div>
+<div class="item"></div>
+<div class="item"></div>
+<div class="item"></div>
+<div class="item"></div>
+</div>
+</div>
+</div>
+
+
+<div id="section-speakers">
+<div class="container">
+    <h2>The Speakers</h2>
+    <img src="img/11.jpg" alt="dot">
+</div>
+</div>
+
+<div id="section-schedule">
+<div class="container">
+<h2>Event Schedule</h2>
+<img src="img/11.jpg" alt="dot">
+<div class="itembox">
+    <ul>
+        <li></li>
+    </ul>
+</div>
+
+</div>
+</div>
+
+<div id="section-ticket">
+<div class="container">
+<h2>Choose a Ticket</h2>
+<img src="img/11.jpg" alt="dot">
+<div class="itembox">
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+</div>
+</div>
+</div>
+
+<div id="section-sponsors">
+<div class="container">
+<h2>Official Sponsors</h2>
+<img src="img/11.jpg" alt="dot">
+<div class="itembox">
+    <h3>Gold Sponsors</h3>
+    <div class="logobox">
+        <div><a href="#"><img src="" alt="logo1"></a></div>
+        <div><a href="#"><img src="" alt="logo2"></a></div>
+        <div><a href="#"><img src="" alt="logo3"></a></div>
+        <div><a href="#"><img src="" alt="logo4"></a></div>
+    </div>
+    <h3>Sliver Sponsors</h3>
+    <div class="logobox">
+        <div><a href="#"><img src="" alt="logo5"></a></div>
+        <div><a href="#"><img src="" alt="logo6"></a></div>
+        <div><a href="#"><img src="" alt="logo7"></a></div>
+        <div><a href="#"><img src="" alt="logo8"></a></div>
+</div>
+</div>
+</div>
+<div id="section-testimonials">
+    <div class="container">
+        <div class="itembox">
+            <img src="img/12.jpg" alt="dot">
+                <h4>I've got lot experiences!</h4>
+                <p>I'm always impressed with the event. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+                <span>John, Customer</span>
+                <img src="img/13.jpg" alt="dot">
+            </div>
+    </div>
+</div>
+<div id="section-portfolio">
+    <div class="container">
+        <div class="imgbox">
+            <img src="https://giseok-hong.github.io/Portfolio/web_pages/exhibiz/html/img/box9-img-1.jpg" alt="img1">
+            <div class="textbox">
+                <p>VIEW IMAGE</p>
+            </div>
+        </div>
+
+        <div class="imgbox">
+            <img src="https://giseok-hong.github.io/Portfolio/web_pages/exhibiz/html/img/box9-img-2.jpg" alt="img2">
+            <div class="textbox">
+                <p>VIEW IMAGE</p>
+            </div>
+        </div>
+
+        <div class="imgbox">
+            <img src="https://giseok-hong.github.io/Portfolio/web_pages/exhibiz/html/img/box9-img-3.jpg" alt="img3">
+            <div class="textbox">
+                <p>VIEW IMAGE</p>
+            </div>
+        </div>
+
+        <div class="imgbox">
+            <img src="https://giseok-hong.github.io/Portfolio/web_pages/exhibiz/html/img/box9-img-4.jpg" alt="img4">
+            <div class="textbox">
+                <p>VIEW IMAGE</p>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<div id="section-register">
+    <div class="container">
+        <h2>Register Now</h2>
+        <img src="img/11.jpg" alt="dot">
+        <form>
+            <fieldset>
+                <div class="form-left">
+                    <input type="text" placeholder="Your Name">
+                    <input type="text" placeholder="Your Email">
+                    <input type="text" placeholder="Your Phone">
+                </div>
+                <div class="form-right">
+                    <textarea name="message" id="message" cols="40" rows="10" placeholder="Additional Message"></textarea>
+                </div>
+            </fieldset>
+            <button>REGISTER NOW</button>
+        </form>
+    </div>
+</div>
+
+<!--banner begin-->
+    <div id="banner">
+        <div class="container">
+            <div class="left-box">
+                <h3>Get your seat before the price goes up</h3>
+            </div>
+            <div class="right-box">
+                <button>GET TICKET</button>
+            </div>
+        </div>
+    </div>
+    <div id="section-facts">
+        <div class="container">
+            <div class="itembox">
+                <div class="iconbox">
+                    <img src="img/1.jpg" alt="icon1">
+                </div>
+                <h3>8800</h3>
+                <p>PARTICIPANTS</p>
+            </div>
+
+            <div class="itembox">
+
+                <div class="iconbox">
+                    <img src="img/2.jpg" alt="icon1">
+                </div>
+                <h3>300</h3>
+                <p>TOPICS</p>
+            </div>
+            <div class="itembox">
+
+                <div class="iconbox">
+                    <img src="img/3.jpg" alt="icon1">
+                </div>
+                <h3>50</h3>
+                <p>SPEAKERS</p>
+            </div>
+            <div class="itembox">
+
+                <div class="iconbox">
+                    <img src="img/4.jpg" alt="icon1">
+                </div>
+                <h3>20</h3>
+                <p>AWARDS</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="footerwrap">
+        <footer>
+            <div class="logo">
+                <a href="#"><img src="https://www.madebydesignesia.com/themes/exhibiz/images/logo.png" alt="logo"></a>
+            </div>
+            <div class="copyright">
+            © Copyright 2021 - Exhibiz - Event Conference Website Template by 
+                <span>Designesia</span>
+            </div>
+
+            <div class="sns">
+                <ul>
+                    <li><a href="#"><img src="img/5.jpg" alt="snslogo1"></a></li>
+                    <li><a href="#"><img src="img/6.jpg" alt="snslogo2"></a></li>
+                    <li><a href="#"><img src="img/7.jpg" alt="snslogo3"></a></li>
+                    <li><a href="#"><img src="img/8.jpg" alt="snslogo4"></a></li>
+                    <li><a href="#"><img src="img/9.jpg" alt="snslogo5"></a></li>
+                    
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+</div>
+</main>
+
+</div>
+</body>
+</html>
